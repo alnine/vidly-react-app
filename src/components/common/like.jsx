@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const Like = props => {
   let classes = "fa fa-heart";
@@ -12,6 +13,10 @@ const Like = props => {
       aria-hidden="true"
     />
   );
+};
+
+Like.propTypes = {
+  onClick: PropTypes.func.isRequired
 };
 
 export default Like;
