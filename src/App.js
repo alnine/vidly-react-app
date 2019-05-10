@@ -9,6 +9,7 @@ import NavBar from "./components/nav-bar";
 import MovieForm from "./components/movie-form";
 import LoginForm from "./components/login-form";
 import RegisterForm from "./components/register-form";
+import Logout from "./components/logout";
 import "./App.css";
 
 class App extends Component {
@@ -30,6 +31,7 @@ class App extends Component {
           <Switch>
             <Route path="/register" component={RegisterForm} />
             <Route path="/login" component={LoginForm} />
+            <Route path="/logout" component={Logout} />
             <Route path="/movies/:id" component={MovieForm} />
             <Route path="/movies" component={Movies} />
             <Route path="/customers" component={Customers} />
