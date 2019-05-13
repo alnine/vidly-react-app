@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import _ from "lodash";
 
 class TableBody extends Component {
-  renderCell = (item, column, user) => {
-    if (column.content && user) return column.content(item);
+  renderCell = (item, column) => {
+    if (column.content) return column.content(item);
 
     return _.get(item, column.path);
   };
@@ -13,7 +13,7 @@ class TableBody extends Component {
   };
 
   render() {
-    const { data, columns, idProperty, user } = this.props;
+    const { data, columns, idProperty } = this.props;
 
     return (
       <tbody>
@@ -21,7 +21,7 @@ class TableBody extends Component {
           <tr key={item[idProperty]}>
             {columns.map(column => (
               <td key={this.createKey(item[idProperty], column)}>
-                {this.renderCell(item, column, user)}
+                {this.renderCell(item, column)}
               </td>
             ))}
           </tr>
