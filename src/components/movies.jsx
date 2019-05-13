@@ -95,6 +95,7 @@ class Movies extends Component {
   render() {
     const { length: count } = this.state.movies;
     const { pageSize, currentPage, sortColumn, searchQuery } = this.state;
+    const { user } = this.props;
 
     if (count === 0) return <p>There are no movies in the database.</p>;
 
@@ -110,13 +111,15 @@ class Movies extends Component {
           />
         </div>
         <div className="col">
-          <Link
-            className="btn btn-primary"
-            to="/movies/new"
-            style={{ marginBottom: 20 }}
-          >
-            New movie
-          </Link>
+          {user && (
+            <Link
+              className="btn btn-primary"
+              to="/movies/new"
+              style={{ marginBottom: 20 }}
+            >
+              New movie
+            </Link>
+          )}
           <p>Showing {totalCount} movies in the database.</p>
           <SearchBox value={searchQuery} onChange={this.handleSearch} />
           <MoviesTable
@@ -125,6 +128,7 @@ class Movies extends Component {
             onLike={this.handleLike}
             onDelete={this.handleDelete}
             onSort={this.handleSort}
+            user={user}
           />
           <Pagination
             pageSize={pageSize}
