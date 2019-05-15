@@ -1,9 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
-import "./index.css";
-import App from "./App";
+import $ from "jquery";
+import Popper from "popper.js";
 import * as serviceWorker from "./serviceWorker";
+import App from "./App";
+import "./index.css";
+import "bootstrap/dist/js/bootstrap.bundle.min";
 import "bootstrap/dist/css/bootstrap.css";
 import "font-awesome/css/font-awesome.css";
 
