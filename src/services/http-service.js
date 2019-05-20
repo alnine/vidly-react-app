@@ -1,5 +1,7 @@
 import axios from "axios";
 
+axios.defaults.baseURL = process.env.REACT_APP_URL_API;
+
 axios.interceptors.response.use(null, error => {
   const expectedError =
     error.response &&
